@@ -1,0 +1,24 @@
+<div class="form-vertical">
+    <h1 style="color: yellow;">Gerenciar Cards</h1>
+    <p style="color: white; margin-bottom: 20px;">Clique em "deletar" para remover permanentemente o card:</p>
+
+    <div class="lista-vertical">
+        {% for card in cards %}
+            <div style="display: flex; justify-content: space-between; align-items: center; background: white; padding: 15px; border-radius: 8px; margin-bottom: 10px; border-left: 5px solid yellow;">
+                <div style="color: black;">
+                    <strong style="font-size: 1.3rem;">{{ card.kanji }}</strong> 
+                    <span style="color: gray; margin-left: 10px;">{{ card.traducao }}</span>
+                </div>
+                
+                <button hx-delete="/deletar_flashcard/{{ card.flashcards_id }}" 
+                        hx-target="#conteudo" 
+                        hx-confirm="Deseja mesmo deletar o card '{{ card.kanji }}'?"
+                        style="background: none; border: none; cursor: pointer; font-size: 1.2rem; color: rgb(157, 157, 0)">
+                    deletar
+                </button>
+            </div>
+        {% else %}
+            <h2 style="color: white;">Este deck não possui cards para deletar.</p>
+        {% endfor %}
+    </div>
+</div>

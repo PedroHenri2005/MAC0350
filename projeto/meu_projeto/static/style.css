@@ -1,0 +1,307 @@
+/*Estilo base do corpo*/
+
+body {
+    background-image: url('japao_vermelho.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+/*Imagem do Japão (ela será o fundo em: "Meus decks" / "Buscar" / "Novo deck")*/
+
+body.tema-padrao { background-image: url('japao_vermelho.png'); }
+
+/*Imagem de Hiroshima (ela será o fundo em: "Editar deck")*/
+
+body.tema-editar { background-image: url('hiroshima_verde.png'); }
+
+/*Imagem de Tokyo (ela será o fundo em: "Novo card")*/
+
+body.tema-adicionar { background-image: url('tokyo_azul.png'); }
+
+/*Imagem de Osaka (ela será o fundo em: "Apagar deck")*/
+
+body.tema-apagar_deck { background-image: url('osaka_roxa.png'); }
+
+/*Imagem de Hokaido (ela será o fundo em: "Apagar card")*/
+
+body.tema-apagar_card { background-image: url('hokaido_amarelo.png')}
+
+
+/*Container Principal do Menu (navegação na parte superior do site)*/
+
+#menu-principal {
+    display: flex;             
+    flex-wrap: wrap;           
+    justify-content: center;    
+    gap: 10px;             
+    padding: 15px;
+    background-color: silver; 
+    border-bottom: 2px solid red;
+    position: sticky; 
+    top: 0;
+}
+
+/*Estilo dos botões da navegação*/
+
+#menu-principal button {
+    padding: 10px 20px;   
+    font-size: 1.1rem;       
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid red;
+    border-radius: 8px;
+    background-color: white;
+    color: red;
+    transition: all 0.5s ease;
+}
+
+#menu-principal button:hover {
+    background-color: red;
+    color: black;
+}
+
+#menu-principal button.aba-ativa {
+    background-color: red; 
+    color: black;
+}
+
+/*Estilo dos botões que correspondem aos Decks (aparecem abaixo da navegação em todas as abas)*/
+
+.container-decks {
+    display: flex;
+    flex-direction: column; 
+    flex-wrap: wrap;        
+    max-height: 500px;
+    gap: 15px;              
+    padding: 20px;
+    justify-content: flex-start;
+    align-content: center;  
+}
+
+.botao-deck {
+    display: inline-block;         
+    width: 90%;              
+    max-width: 500px;              
+    padding: 20px; 
+    background-color: black; 
+    color: white;            
+    border-left: 5px solid red; 
+    border-radius: 4px;
+    font-size: 1.2rem;
+    text-align: left;        
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.botao-deck:hover {
+    background-color: black; 
+    border-color: red;                      
+    transform: translateX(10px);            
+}
+
+.borda-verde {
+    border-left: 5px solid green;
+}
+
+.borda-verde:hover {
+    background-color: black;
+    border-color: green;
+}
+
+.borda-azul {
+    border-left: 5px solid blue;
+}
+
+.borda-azul:hover {
+    background-color: black;
+    border-color: blue;
+}
+
+.borda-roxa {
+    border-left: 5px solid purple;
+}
+
+.borda-roxa:hover {
+    background-color: black;
+    border-color: purple;
+}
+
+.borda-amarela {
+    border-left: 5px solid yellow;
+}
+
+.borda-amarela:hover {
+    background-color: black;
+    border-color: yellow;
+}
+
+/*Regras de Responsividade*/
+
+@media (max-width: 1020px) {
+
+    .container-decks {
+        max-height: none; 
+        display: block;    
+        padding: 10px;
+    }
+
+    .botao-deck {
+        width: 100%;     
+        max-width: none;
+        margin-bottom: 10px;        
+        padding: 15px 10px;         
+        font-size: 1rem;            
+    }
+}
+
+@media (max-width: 574px) {
+
+    .opcional-2 {
+        display: none; /*Esconde as abas "Editar", "Apagar Deck" e "Deletar Card"*/
+    }
+}
+
+@media (max-width: 360px) {
+
+    .opcional-1 {
+        display: none; /*Agora também esconde "Novo Card" e "Novo Deck"*/
+    }
+
+    #menu-principal {
+        justify-content: space-around; 
+    }
+
+    #menu-principal button {
+        flex: 1; 
+        font-size: 0.85rem; 
+        padding: 10px 5px;
+    }
+}
+
+.form-vertical {
+    display: flex;
+    flex-direction: column; 
+    gap: 15px;              
+    max-width: 400px;      
+}
+
+/*Estilo do formulário geral*/
+
+.form-grupo {
+    display: flex;
+    flex-direction: column; 
+    gap: 5px;               
+}
+
+.form-grupo label {
+    display: block;        
+    color: red;        
+    font-weight: bold;     
+    margin-bottom: 5px;
+}
+
+.form-grupo input {
+    width: 100%;             
+    padding: 15px;           
+    font-size: 1.2rem;       
+    border: 5px solid red; 
+    border-radius: 8px;      
+    background-color: white; 
+    box-sizing: border-box; 
+}
+
+.botao-salvar {
+    display: block;
+    width: fit-content;      
+    padding: 15px 30px;
+    margin: 20px auto;       
+    background-color: black; 
+    color: green;          
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 5px solid lightgreen; 
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.botao-salvar:hover {
+    background-color: gray;
+    transform: scale(1.05);  
+}
+
+.mensagem-sucesso {
+    color: green;
+    text-align: center;
+}
+
+ /*Aqui, ficarão os estilos da aba do Quiz*/
+
+/*Container principal do Quiz*/
+
+.quiz-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 40px;
+background-color: silver;
+border-radius: 15px;
+margin-top: 20px;
+}
+
+/*O Kanji gigante*/
+
+.quiz-container h1 {
+font-size: 300px;
+margin: 0;
+color: black;
+}
+
+/*Área onde o texto aparece*/
+
+#revelar-conteudo {
+font-size: 1.2rem;
+height: 80px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+margin: 20px 0;
+color: #555;
+background: #fff;
+width: 100%;
+border-radius: 8px;
+}
+
+/*Grupo de botões*/
+
+.controles-quiz {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/*Estilização Individual dos Botões do Quiz*/
+
+.controles-quiz button {
+    width: 250px;            
+    padding: 15px;          
+    font-size: 1.2rem;       
+    font-weight: bold;
+    cursor: pointer;
+    background-color: white; 
+    color: black;             
+    border: 3px solid black; 
+}
+
+.controles-quiz button:hover {
+    background-color: gray;
+    color: white;
+    transform: scale(1.05);
+}

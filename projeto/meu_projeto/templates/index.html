@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nihongo Flashcards</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.js" integrity="sha384-ezjq8118wdwdRMj+nX4bevEi+cDLTbhLAeFF688VK8tPDGeLUe0WoY2MZtSla72F" crossorigin="anonymous"></script>
+    <script>
+        function atualizarMenu(elemento) {
+            const botoes = document.querySelectorAll('#menu-principal button');
+            botoes.forEach(btn => btn.classList.remove('aba-ativa'));
+            elemento.classList.add('aba-ativa');
+        }
+    </script>
+</head>
+<body>
+    <nav id="menu-principal">
+
+    <button hx-get="/lista_decks" 
+            hx-target="#conteudo"
+            class="aba-ativa" 
+            hx-on:click="document.body.className='tema-padrao'"
+            onclick="atualizarMenu(this)">
+        Meus decks
+    </button>
+
+    <button hx-get="/form_busca" 
+            hx-target="#conteudo"
+            hx-on:click="document.body.className='tema-padrao'"
+            onclick="atualizarMenu(this)">
+        Buscar
+    </button>
+
+    <button hx-get="/form_novo_deck" 
+            hx-target="#conteudo"
+            class="opcional-1"
+            hx-on:click="document.body.className='tema-padrao'"
+            onclick="atualizarMenu(this)">
+        Novo deck
+    </button>
+
+    <button hx-get="/form_busca?proximo_passo=editar_deck" 
+            hx-target="#conteudo"
+            class="opcional-2"
+            hx-on:click="document.body.className='tema-editar'"
+            onclick="atualizarMenu(this)">
+        Editar deck
+    </button>
+
+    <button hx-get="/form_busca?proximo_passo=adicionar" 
+            hx-target="#conteudo"
+            class="opcional-1"
+            hx-on:click="document.body.className='tema-adicionar'"
+            onclick="atualizarMenu(this)">
+        Novo card
+    </button>
+
+    <button hx-get="/form_busca?proximo_passo=apagar_deck_inteiro" 
+            hx-target="#conteudo"
+            class="opcional-2"
+            hx-on:click="document.body.className='tema-apagar_deck'"
+            onclick="atualizarMenu(this)">
+        Apagar deck
+    </button>
+
+    <button hx-get="/form_busca?proximo_passo=apagar_card" 
+            hx-target="#conteudo"
+            class="opcional-2"
+            hx-on:click="document.body.className='tema-apagar_card'"
+            onclick="atualizarMenu(this)">
+        Apagar card
+    </button>
+    
+</nav>
+    <main>
+
+        <h1 style="color: white">Meus decks</h1>
+        
+        <div id="conteudo" hx-get="/lista_decks" hx-trigger="load">
+        </div>
+
+    </main>
+</body>
+</html> 

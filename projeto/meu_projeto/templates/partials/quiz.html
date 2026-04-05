@@ -1,0 +1,31 @@
+<div class="quiz-container" style="text-align: center; padding: 20px;">
+
+    <h1 style="font-size: 80px; margin-bottom: 20px;">{{ card.kanji }}</h1>
+
+    <div id="revelar-conteudo" style="min-height: 100px; margin-bottom: 20px;">
+        <p style="color: gray;">Clique nos botões abaixo para ajuda</p>
+    </div>
+
+    <div class="controles-quiz">
+        <button class="botao-tema" 
+                onclick="document.getElementById('revelar-conteudo').innerHTML = '<strong>Frase:</strong> {{ card.frase }}'">
+            Dica
+        </button>
+
+        <button class="botao-tema" 
+                onclick="document.getElementById('revelar-conteudo').innerHTML = '<h2 style=\'color: red;\'>{{ card.traducao }}</h2>'">
+            Tradução
+        </button>
+
+        <button hx-get="/revisar/{{ deck_id }}" 
+                hx-target="#conteudo" 
+                class="botao-tema" 
+                style="background-color: blue; color: white;">
+            Próximo
+        </button>
+        <hr style="margin-top: 30px;">
+        <button hx-get="/lista_decks" hx-target="#conteudo" style="background-color: red; color: white;">
+            Sair do Quiz
+        </button>
+    </div>
+</div>

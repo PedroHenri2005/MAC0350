@@ -1,0 +1,19 @@
+<div class="form-vertical">
+    <h1 style="color: red">Novo Deck</h1>
+    
+    <form hx-post="/salvar_deck" hx-target="#conteudo">
+        <div class="form-grupo">
+            <label for="tema">Tema do Deck:</label>
+            <input type="text" name="tema" id="tema" required placeholder="Digite o tema...">
+        </div>
+
+        <div class="form-grupo" style="margin-top: 15px;">
+            <label for="descricao">Descrição (opcional):</label>
+            <input type="text" name="descricao" id="descricao" placeholder="Para que serve este deck?">
+        </div>
+
+        <button type="submit" class="botao-salvar">
+            Criar deck
+        </button>
+    </form>
+</div>

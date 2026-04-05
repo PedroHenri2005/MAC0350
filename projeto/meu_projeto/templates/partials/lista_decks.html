@@ -1,0 +1,44 @@
+<div class="container-decks">
+    {% for deck in decks %}
+
+        {% if modo == "editar_deck" %}
+            <button hx-get="/form_editar_deck/{{ deck.decks_id }}" 
+            hx-target="#conteudo" 
+            class="botao-deck borda-verde">
+            Editar: {{ deck.tema }}
+            </button>
+        
+        {% elif modo == "adicionar" %}
+            <button hx-get="/form_novo_card/{{ deck.decks_id }}" 
+                    hx-target="#conteudo" 
+                    class="botao-deck borda-azul">
+                + Adicionar em: {{ deck.tema }}
+            </button>
+            
+        {% elif modo == "apagar_deck_inteiro" %}
+            <button hx-delete="/deletar_deck/{{ deck.decks_id }}" 
+                hx-target="#conteudo" 
+                hx-confirm="ATENÇÃO: Isso apagará o deck e TODOS os cards dentro dele. Tem certeza que quer apagar?"
+                class="botao-deck borda-roxa">
+                Deletar deck completo: {{ deck.tema }}
+            </button>
+
+        {% elif modo == "apagar_card" %}
+            <button hx-get="/preparar_delecao/{{ deck.decks_id }}" 
+                    hx-target="#conteudo" 
+                    class="botao-deck borda-amarela">
+                - Deletar em: {{ deck.tema }}
+            </button>
+
+        {% else %}
+            <button hx-get="/revisar/{{ deck.decks_id }}" 
+                    hx-target="#conteudo" 
+                    class="botao-deck">
+                    {{ deck.tema }}
+            </button>
+        {% endif %}
+        
+    {% else %}
+        <h1 style="color: rgb(255, 0, 242)">Nenhum deck encontrado.</h1>
+    {% endfor %}
+</div>

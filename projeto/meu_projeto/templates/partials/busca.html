@@ -1,0 +1,25 @@
+<div style="margin-bottom: 20px;">
+    
+        {% if proximo_passo == 'adicionar' %}
+            <h2 style="color: blue">Selecione um deck para adicionar um novo card</h2>
+        {% elif proximo_passo == 'editar_deck' %}
+            <h2 style="color: green">Selecione um deck para editar</h2>
+        {% elif proximo_passo == 'apagar_deck_inteiro'%}
+            <h2 style="color: purple">Selecione um deck para apagar</h2>
+        {% elif proximo_passo == 'apagar_card' %}
+            <h2 style="color: yellow">Selecione um deck que contenha o card para apagar</h2>
+        {% else %}  
+            <h2 style="color: red">Buscando decks</h2>
+        {% endif %}
+    
+    <input type="text" 
+           name="tema" 
+           placeholder="Digite o tema..." 
+           hx-get="/lista_decks?modo={{ proximo_passo }}" 
+           hx-target="#lista-resultado" 
+           hx-trigger="keyup changed delay:500ms"
+           style="padding: 8px; width: 100%; max-width: 300px;">
+</div>
+
+<div id="lista-resultado" hx-get="/lista_decks?modo={{ proximo_passo }}" hx-trigger="load">
+</div>
