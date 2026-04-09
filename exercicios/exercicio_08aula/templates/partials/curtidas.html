@@ -1,0 +1,15 @@
+<div id="aba-curtidas">
+    <h2>Aba de Curtidas</h2>
+    <h3>Contador: {{ curtidas }}</h3>
+    
+    <button hx-post="/curtir"
+            hx-target="#aba-curtidas">
+            Curtir
+    </button>
+    
+    <button hx-post="/retirar-curtidas"
+            hx-target="#aba-curtidas"
+            hx-confirm="Tem certeza que deseja retirar todas as curtidas?">
+            Retirar Curtidas
+    </button>
+</div>

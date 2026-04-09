@@ -1,0 +1,141 @@
+<div id="aba-jupiter">
+    <style>
+        html, body {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            margin: 0;
+        }
+
+        main {
+            display: flex;
+            flex: 1;
+            flex-direction: row;
+            align-items: flex-start;
+            background-color: lightgray;
+        }
+
+        .formulario {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 2vh;
+            width:150px;
+            padding: 20px;
+            background-color: rgb(16, 148, 171);
+            border-radius: 5vh;
+        }
+
+        .formulario input {
+            padding: 1vh;
+            border: 0.7vh solid rgb(100, 195, 210);
+            border-radius: 0.5vh;
+        }
+
+        .formulario button {
+            padding: 0.5vh;
+            background-color: rgb(252, 181, 20);
+            border-width: 0.7vh;
+            border-radius: 0.5vh;
+            border-color: black;
+            cursor: pointer;
+        }
+
+        .navegacao a {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            margin-right: 60vh;
+            color: rgb(16, 148, 171);
+        }
+
+        .navegacao a:hover {
+            color: rgb(252, 181, 20);
+            background-color: rgb(100, 195, 210);
+            text-decoration: underline;
+        }
+
+        .rodape {
+            background-color: lightgray;
+            text-align: center;
+        }
+
+        .rodape a {
+            color: rgb(16, 148, 171);
+            text-decoration: none;
+        }
+
+        .rodape a:hover {
+            color: rgb(252, 181, 20);
+            background-color: rgb(100, 195, 210);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .navegacao, .rodape {
+                display: none;
+            }
+
+            main {
+                justify-content: center;
+            }
+
+            main, .rodape {
+                background-color: lightcoral;
+            }
+            
+        }
+
+        @media (max-height: 600px) {
+            header {
+                display: none;
+            }
+
+            main {
+                justify-content: center;
+            }
+
+            main, .rodape {
+                background-color: lightcoral;
+            }
+            
+        }
+    </style>
+
+    <header>
+        <div class="secao-imagens">
+        <img src="https://uspdigital.usp.br/comumwebdev/imagens/cabecalho/usp-logo.png">
+        <img src="https://uspdigital.usp.br/comumwebdev/imagens/cabecalho/usp-logo-texto.png">
+        </div>
+        <div class="banner">
+            <div style="background-color: rgb(252, 181, 20); height: 0.9vh; width: 100%;"></div>
+            <div style="background-color: rgb(100, 195, 210); height: 1.35vh; width: 100%;"></div>
+            <div style="background-color: rgb(16, 148, 171); height: 1.8vh; width: 100%;"></div>
+        </div>
+    </header> 
+    <main>
+        <div>
+            <nav class="navegacao">
+                <ul>
+                    <a href="https://www.google.com/?hl=pt_BR">Público</a>
+                    <a href="https://www.google.com/?hl=pt_BR">Calendário escolar</a>
+                    <a href="https://www.google.com/?hl=pt_BR">Cursos de ingresso</a>
+                    <a href="https://www.google.com/?hl=pt_BR">Disciplina</a>
+                    <a href="https://www.google.com/?hl=pt_BR">Editais</a>
+                </ul>
+            </nav>
+        </div>
+        <div>
+        <form class="formulario">
+            Login
+            <input type="text" placeholder="Usuário" name="primeiro">
+            <input type="password" placeholder="Senha" name="senha">
+            <button type="button">Entrar</button>
+        </form>
+        </div>
+    </main>
+    <footer class="rodape">
+        <p><a href="https://www.google.com/?hl=pt_BR">Créditos</a>|<a href="https://www.google.com/?hl=pt_BR">Fale conosco</a>
+        <p>@ 1999 - 2026 - Superintendência de Tecnologia da Informação/USP</p>
+    </footer>
+</div>

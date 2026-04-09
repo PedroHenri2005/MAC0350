@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site HTMX</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.js" integrity="sha384-ezjq8118wdwdRMj+nX4bevEi+cDLTbhLAeFF688VK8tPDGeLUe0WoY2MZtSla72F" crossorigin="anonymous"></script>
+    <script>
+        function atualizarMenu(elemento) {
+            const botoes = document.querySelectorAll('#menu-principal button');
+            botoes.forEach(btn => btn.classList.remove('aba-ativa'));
+            elemento.classList.add('aba-ativa');
+        }
+    </script>
+    <style>
+        .aba-ativa {
+            background-color: blue;
+            color: white;
+            font-weight: bold;
+        }
+        
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Meu Site com HTMX</h1>
+    
+    <nav id="menu-principal">
+        <button hx-get="/aba/curtidas" 
+                hx-target="#conteudo" 
+                hx-push-url="true"
+                onclick="atualizarMenu(this)">
+            Curtidas
+        </button>
+        <button hx-get="/aba/meu_jupiterweb" 
+                hx-target="#conteudo" 
+                hx-push-url="true"
+                onclick="atualizarMenu(this)">
+            Meu Júpiterweb
+        </button>
+        <button hx-get="/aba/pagina_professor" 
+                hx-target="#conteudo" 
+                hx-push-url="true"
+                onclick="atualizarMenu(this)">
+            Pagina do professor
+        </button>
+    </nav>
+
+    <hr>
+
+    <main id="conteudo" 
+          hx-get="/aba/curtidas" 
+          hx-trigger="load">
+    </main>
+</body>
+</html>
